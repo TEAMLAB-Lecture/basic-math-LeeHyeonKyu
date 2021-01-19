@@ -7,7 +7,7 @@
 """
 
 
-def get_greatest(number_list):
+def get_greatest(number_list:list) -> int :
     """
     주어진 리스트에서 가장 큰 숫자를 반환함
 
@@ -24,11 +24,11 @@ def get_greatest(number_list):
             >>> bm.get_greatest(number_list)
             99
     """
-    greatest_number = None
+    greatest_number = max(number_list)
     return greatest_number
 
 
-def get_smallest(number_list):
+def get_smallest(number_list:list) -> int :
     """
     주어진 리스트에서 제일 작은 숫자를 반환함
 
@@ -45,11 +45,11 @@ def get_smallest(number_list):
             >>> bm.get_smallest(number_list)
             11
     """
-    smallest_number = None
+    smallest_number = min(number_list)
     return smallest_number
 
 
-def get_mean(number_list):
+def get_mean(number_list:int) -> float :
     """
     주어진 리스트 숫자들의 평균을 구함.
 
@@ -58,7 +58,7 @@ def get_mean(number_list):
             ex - [10, 33, 22, 99, 33]
 
         Returns:
-            mean (int): parameter number_list 숫자들의 평균
+            mean (float): parameter number_list 숫자들의 평균
 
         Examples:
             >>> number_list = [39, 54, 32, 11, 99]
@@ -66,11 +66,11 @@ def get_mean(number_list):
             >>> bm.get_mean(number_list)
             47
     """
-    mean = None
+    mean = float(sum(number_list) / len(number_list))
     return mean
 
 
-def get_median(number_list):
+def get_median(number_list:list) -> float :
     """
     주어진 리스트 숫자들의 중간값을 구함.
 
@@ -79,7 +79,7 @@ def get_median(number_list):
             ex - [10, 33, 22, 99, 33]
 
         Returns:
-            median (int): parameter number_list 숫자들의 중간값
+            median (float): parameter number_list 숫자들의 중간값
 
         Examples:
             >>> number_list = [39, 54, 32, 11, 99]
@@ -90,5 +90,10 @@ def get_median(number_list):
             >>> bm.get_median(number_list2)
             35.5
     """
-    median = None
+
+    lst = sorted(number_list)
+    if len(lst) % 2 == 0 :
+        median = (lst[len(lst)//2] + lst[(len(lst)//2)-1]) / 2
+    else :
+        median = float(lst[len(lst)//2])
     return median
